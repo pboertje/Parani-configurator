@@ -1,0 +1,35 @@
+[project]
+name = "paraniwin-py"
+version = "0.1.0"
+description = "Cross-platform replacement for Sena ParaniWin (Parani-SD1000 Bluetooth serial adapter)"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "pyserial>=3.4",
+]
+keywords = ["parani", "sena", "sd1000", "bluetooth", "serial", "at-commands"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Environment :: X11 Applications :: Tk",
+    "Topic :: Communications",
+    "Topic :: System :: Hardware",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+parani = "paraniwin:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["paraniwin", "paranicore"]
